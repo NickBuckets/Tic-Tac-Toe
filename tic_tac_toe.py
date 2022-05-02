@@ -87,5 +87,5 @@ class Tic_Tac_Toe:
             if winner != None:
                 print(f"{winner} is the winner!")
         
-
-Tic_Tac_Toe().start_game()
+if __name__ == '__main__':
+    Tic_Tac_Toe().start_game()
