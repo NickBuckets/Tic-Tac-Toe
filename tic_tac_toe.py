@@ -94,5 +94,6 @@ class Tic_Tac_Toe:
                 os.system("python main.py")
                 
         
+if __name__ == '__main__':
+    Tic_Tac_Toe().start_game()
 
-Tic_Tac_Toe().start_game()
