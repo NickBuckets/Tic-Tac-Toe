@@ -1,3 +1,5 @@
+import os
+
 class Tic_Tac_Toe:
     
     positions = [
@@ -70,22 +72,27 @@ class Tic_Tac_Toe:
 
         count = 0
         while True:
-            coordinates = input("Enter your position: ")
-            check_position_existance = self.check_index_location(coordinates)
-            if check_position_existance == False:
-                print("That position is already taken!")
-                continue
-            
-            if count % 2 == 0:
-                self.positions[int(coordinates.split(",")[0])][int(coordinates.split(",")[-1])] = "X"
-            else:
-                self.positions[int(coordinates.split(",")[0])][int(coordinates.split(",")[-1])] = "O"
-            
-            count += 1
-            print(self.create_game_board())
-            winner = self.check_winning_status()
-            if winner != None:
-                print(f"{winner} is the winner!")
+            try:
+                coordinates = input("Enter your position: ")
+                check_position_existance = self.check_index_location(coordinates)
+                if check_position_existance == False:
+                    print("That position is already taken!")
+                    continue
+                
+                if count % 2 == 0:
+                    self.positions[int(coordinates.split(",")[0])][int(coordinates.split(",")[-1])] = "X"
+                else:
+                    self.positions[int(coordinates.split(",")[0])][int(coordinates.split(",")[-1])] = "O"
+                
+                count += 1
+                print(self.create_game_board())
+                winner = self.check_winning_status()
+                if winner != None:
+                    print(f"{winner} is the winner!")
+                    os.system("python main.py")
+            except:
+                os.system("python main.py")
+                
         
 
 Tic_Tac_Toe().start_game()
